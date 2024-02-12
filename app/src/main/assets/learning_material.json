@@ -1,0 +1,116 @@
+{
+  "topics": [
+    {
+      "id": "syntax",
+      "title": "Java Syntax",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Java syntax is the set of rules and conventions for writing Java programs. A Java program typically consists of one or more classes that define the objects and methods that make up the program."
+        },
+        {
+          "type": "code",
+          "text": "public class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }\n}"
+        }
+      ]
+    },
+    {
+      "id": "comment",
+      "title": "Comments",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Comments are non-executable statements in Java used to provide explanations or annotations within the code. Java supports single-line and multi-line comments."
+        },
+        {
+          "type": "code",
+          "text": "// This is a single-line comment\n/* This is a\n   multi-line comment */"
+        }
+      ]
+    },
+    {
+      "id": "data_types",
+      "title": "Data Types",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Data types in Java specify the size and type of values that can be stored in variables. Java has two categories of data types: primitive types (e.g., int, boolean) and reference types (e.g., String, Arrays)."
+        },
+        {
+          "type": "code",
+          "text": "int myNum = 100;\nboolean myBool = true;\nchar myChar = 'A';\nString myString = \"Hello\";"
+        }
+      ]
+    },
+    {
+      "id": "variables",
+      "title": "Variables",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Variables are containers for storing data values. In Java, each variable is associated with a data type."
+        },
+        {
+          "type": "code",
+          "text": "int age = 30;\nString name = \"John\";"
+        }
+      ]
+    },
+    {
+      "id": "operators",
+      "title": "Operators",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Operators in Java are special symbols that perform operations on variables and values. Java provides a rich set of operators including arithmetic, relational, and logical operators."
+        },
+        {
+          "type": "code",
+          "text": "int sum = 10 + 5;\nboolean isTrue = (5 > 3) && (8 > 5);"
+        }
+      ]
+    },
+    {
+      "id": "control_structures",
+      "title": "Control Structures",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Control structures control the flow of execution in a program. Java supports various control structures, including if-else statements, switch statements, and loops (for, while, do-while)."
+        },
+        {
+          "type": "code",
+          "text": "if (condition) {\n    // block of code to be executed if the condition is true\n} else {\n    // block of code to be executed if the condition is false\n}\nfor (int i = 0; i < 5; i++) {\n    System.out.println(i);\n}"
+        }
+      ]
+    },
+    {
+      "id": "arrays",
+      "title": "Arrays",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Arrays in Java are a powerful data structure that can store multiple values of the same type. Arrays are indexed, with the first element's index being 0."
+        },
+        {
+          "type": "code",
+          "text": "int[] myArray = {1, 2, 3, 4, 5};\nSystem.out.println(myArray[0]); // Outputs 1"
+        }
+      ]
+    },
+    {
+      "id": "methods",
+      "title": "Methods",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Methods in Java are blocks of code that perform a specific task and are executed when they are called. Methods can take parameters and can also return a value."
+        },
+        {
+          "type": "code",
+          "text": "public static int addNumbers(int a, int b) {\n    return a + b;\n}"
+        }
+      ]
+    }
+  ]
+}

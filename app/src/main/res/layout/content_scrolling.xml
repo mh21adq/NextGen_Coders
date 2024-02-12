@@ -1,0 +1,243 @@
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".LearnJavaActivity"
+    tools:showIn="@layout/activity_learn_java">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/text_margin">
+
+        <!-- Intro Section -->
+        <LinearLayout
+            android:id="@+id/introSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"
+            android:onClick="toggleButtonVisibility">
+
+            <TextView
+                android:id="@+id/introTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Introduction to Java"
+                android:background="@color/green_200"
+                android:textStyle="bold"
+                android:textColor="@color/cardview_dark_background"
+                android:layout_gravity="center"
+                android:drawableStart="@drawable/ic_arrow_right"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical|start"
+                android:padding="16dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/buttonsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/syntax"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:background="@color/black"
+                android:text="Syntax"/>
+
+            <Button
+                android:id="@+id/comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Comment"/>
+            <Button
+                android:id="@+id/variable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Variable"/>
+            <Button
+                android:id="@+id/data_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Data Type"/>
+            <Button
+                android:id="@+id/operator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Operators"/>
+            <Button
+                android:id="@+id/condition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Conditions"/>
+
+            <Button
+                android:id="@+id/loop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Loops"/>
+            <Button
+                android:id="@+id/Arrays"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Arrays"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/methods_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"
+            android:onClick="toggleButtonVisibility">
+
+            <TextView
+                android:id="@+id/methods_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Method"
+                android:background="@color/green_200"
+                android:layout_marginTop="10sp"
+                android:textStyle="bold"
+                android:textColor="@color/cardview_dark_background"
+                android:layout_gravity="center"
+                android:drawableStart="@drawable/ic_arrow_right"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical|start"
+                android:padding="16dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/buttonsContainer_methods"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/definition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:background="@color/black"
+                android:text="Method Definition"/>
+
+            <Button
+                android:id="@+id/parameter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Parameters"/>
+            <Button
+                android:id="@+id/overloading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Methods Overloading"/>
+            <Button
+                android:id="@+id/recursion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Recursion"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/class_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="10sp"
+            android:background="?attr/selectableItemBackground"
+            android:onClick="toggleButtonVisibility">
+
+            <TextView
+                android:id="@+id/class_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Class"
+                android:background="@color/green_200"
+                android:textStyle="bold"
+                android:textColor="@color/cardview_dark_background"
+                android:layout_gravity="center"
+                android:drawableStart="@drawable/ic_arrow_right"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical|start"
+                android:padding="16dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/buttonsContainer_class"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/object"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:background="@color/black"
+                android:text="Objects"/>
+
+            <Button
+                android:id="@+id/attributes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Attributes"/>
+            <Button
+                android:id="@+id/constructor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Constructor"/>
+            <Button
+                android:id="@+id/encapsulation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Encapsulation"/>
+            <Button
+                android:id="@+id/inheritance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Inheritance"/>
+            <Button
+                android:id="@+id/polymorphism"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Inheritance"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
