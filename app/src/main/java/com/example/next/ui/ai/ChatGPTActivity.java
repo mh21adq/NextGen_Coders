@@ -60,7 +60,7 @@ public class ChatGPTActivity extends AppCompatActivity {
                 OpenAIRequest request = new OpenAIRequest("gpt-4", messages); // Assuming "gpt-4" is your intended model
 
                 // Adjust 'YOUR_OPENAI_API_KEY' with your actual API key
-                String authHeader = "Bearer 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";
+                String authHeader = "Bearer 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";
 
                 // Make the API call
                 openAIService.createChatCompletion(authHeader, request).enqueue(new Callback<OpenAIResponse>() {
@@ -95,7 +95,7 @@ public class ChatGPTActivity extends AppCompatActivity {
             messageView.setTextColor(getResources().getColor(android.R.color.black));
         } else {
             messageView.setBackground(getResources().getDrawable(R.drawable.api_response_background));
-            messageView.setTextColor(getResources().getColor(android.R.color.darker_gray));
+            messageView.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
         }
         chatContainer.addView(messageView);
 
