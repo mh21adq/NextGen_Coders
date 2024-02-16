@@ -13,6 +13,15 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.next.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class ChatGPTActivity extends AppCompatActivity {
 
     private LinearLayout chatContainer;
@@ -28,22 +37,51 @@ public class ChatGPTActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
         toolbar.setNavigationOnClickListener(view -> onBackPressed());
 
         chatContainer = findViewById(R.id.chatContainer);
         userInputEditText = findViewById(R.id.userInputEditText);
         sendButton = findViewById(R.id.sendButton);
 
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://api.openai.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        OpenAIService openAIService = retrofit.create(OpenAIService.class);
+
         sendButton.setOnClickListener(view -> {
             String userInput = userInputEditText.getText().toString().trim();
             if (!userInput.isEmpty()) {
-                addMessageToChat(userInput, true); // Add user message to chat
+                addMessageToChat(userInput, true); // Display user message
                 userInputEditText.setText(""); // Clear input field
 
-                // Simulate sending message to API and receiving response
-                String apiResponse = "This is a simulated response to: " + userInput;
-                addMessageToChat(apiResponse, false); // Add API response to chat
+                List<OpenAIRequest.Message> messages = new ArrayList<>();
+                messages.add(new OpenAIRequest.Message("user", userInput));
+                OpenAIRequest request = new OpenAIRequest("gpt-4", messages); // Assuming "gpt-4" is your intended model
+
+                // Adjust 'YOUR_OPENAI_API_KEY' with your actual API key
+                String authHeader = "Bearer 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";
+
+                // Make the API call
+                openAIService.createChatCompletion(authHeader, request).enqueue(new Callback<OpenAIResponse>() {
+                    @Override
+                    public void onResponse(Call<OpenAIResponse> call, Response<OpenAIResponse> response) {
+                        if (response.isSuccessful() && response.body() != null && response.body().getChoices() != null && !response.body().getChoices().isEmpty()) {
+                            OpenAIResponse.Choice firstChoice = response.body().getChoices().get(0);
+                            if (firstChoice.getMessage() != null) {
+                                String botResponse = firstChoice.getMessage().getContent();
+                                addMessageToChat(botResponse, false); // Display bot response
+                            }
+                        } else {
+                            addMessageToChat("Failed to get a response.", false);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<OpenAIResponse> call, Throwable t) {
+                        addMessageToChat("API call failed: " + t.getMessage(), false);
+                    }
+                });
             }
         });
     }
@@ -53,17 +91,14 @@ public class ChatGPTActivity extends AppCompatActivity {
         messageView.setText(message);
         messageView.setPadding(16, 16, 16, 16);
         if (isUserMessage) {
-            // Style for user message
             messageView.setBackground(getResources().getDrawable(R.drawable.user_message_background));
             messageView.setTextColor(getResources().getColor(android.R.color.black));
         } else {
-            // Style for API response
             messageView.setBackground(getResources().getDrawable(R.drawable.api_response_background));
-            messageView.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
+            messageView.setTextColor(getResources().getColor(android.R.color.darker_gray));
         }
         chatContainer.addView(messageView);
 
-        // Scroll to the bottom to show the latest message
         ScrollView scrollView = findViewById(R.id.scrollView);
         scrollView.post(() -> scrollView.fullScroll(ScrollView.FOCUS_DOWN));
     }
