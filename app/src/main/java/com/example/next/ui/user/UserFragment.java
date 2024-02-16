@@ -4,14 +4,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.next.databinding.FragmentUserBinding;
-import com.example.next.ui.compiler.CompilerViewModel;
 
 public class UserFragment extends Fragment {
 
@@ -19,20 +16,20 @@ public class UserFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        CompilerViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(CompilerViewModel.class);
-
+        // Inflate the layout for this fragment using data binding
         binding = FragmentUserBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
+        // Any setup needed for the fragment can be done here.
+        // For example, setting up listeners, initializing view components, etc.
+
+        // Return the root view of the inflated layout
+        return binding.getRoot();
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        // Set binding to null to avoid memory leaks
         binding = null;
     }
 }

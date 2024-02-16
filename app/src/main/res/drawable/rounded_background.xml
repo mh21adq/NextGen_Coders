@@ -1,0 +1,6 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@android:color/holo_green_dark"/> <!-- Replace with your desired background color -->
+    <corners android:radius="50dp"/> <!-- Replace with the radius you want -->
+    <padding android:left="16dp" android:top="16dp" android:right="6dp" android:bottom="6dp"/>
+    <!-- Add shadow with elevation if needed and if your min API level is 21 or higher -->
+</shape>

@@ -1,0 +1,14 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <Button
+        android:id="@+id/example_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Example Item"
+        android:layout_marginBottom="10dp"/>
+
+</LinearLayout>

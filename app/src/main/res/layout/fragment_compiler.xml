@@ -1,27 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.compiler.CompilerFragment">
+    android:fillViewport="true">
 
-    <Spinner
-        android:id="@+id/compiler_spinner"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/spinner_background"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        android:textSize="16sp"
-        android:spinnerMode="dropdown"
-        android:backgroundTint="@color/red_500"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:padding="16dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Code Editor Frame -->
+        <EditText
+            android:id="@+id/codeEditor"
+            style="@style/Widget.AppCompat.EditText"
+            android:layout_width="369dp"
+            android:layout_height="388dp"
+            android:alpha="0.7"
+            android:background="@android:drawable/editbox_background"
+            android:backgroundTint="@color/cardview_dark_background"
+            android:gravity="start|top"
+            android:hint="write your code here"
+            android:lineBreakWordStyle="phrase"
+            android:inputType="textMultiLine|textNoSuggestions"
+            android:scrollbars="vertical"
+            android:selectAllOnFocus="true"
+            android:singleLine="false"
+            android:textColor="@color/red_500"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Run Button -->
+
+        <!-- Output Frame -->
+
+        <Button
+            android:id="@+id/runButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/red_500"
+            android:shadowRadius="@integer/google_play_services_version"
+            android:text="Run"
+            android:textColorHint="@color/red_500"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/codeEditor" />
+
+        <TextView
+            android:id="@+id/outputTextView"
+            android:layout_width="370dp"
+            android:layout_height="233dp"
+            android:background="@android:color/darker_gray"
+            android:gravity="start|top"
+            android:scrollbars="vertical"
+            android:text="Output"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.555"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/runButton"
+            app:layout_constraintVertical_bias="1.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

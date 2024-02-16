@@ -14,10 +14,12 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.Next.NoActionBar">
+    <style name="Theme.Next.NoActionBar" parent="Theme.MaterialComponents.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <!-- Add any additional customization for your theme here -->
     </style>
+
 
     <style name="Theme.Next.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

@@ -7,33 +7,48 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import com.example.next.R;
-import com.example.next.databinding.FragmentExamplesBinding;
 
 public class ExamplesFragment extends Fragment {
 
-    private FragmentExamplesBinding binding;
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.fragment_examples, container, false);
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        binding = FragmentExamplesBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        // Set up each TextView with click listeners
+        TextView textViewHelloWorld = root.findViewById(R.id.example_item_1);
+        textViewHelloWorld.setOnClickListener(v -> {
+            // Handle the click event for "Hello World"
+            logMessage("Hello World clicked");
+        });
 
-        // Access the TextView from the inflated layout
-        TextView textView = binding.getRoot().findViewById(R.id.textView);
+        TextView textViewAddTwoIntegers = root.findViewById(R.id.example_item_2);
+        textViewAddTwoIntegers.setOnClickListener(v -> {
+            // Handle the click event for "Add Two Integers"
+            logMessage("Add Two Integers clicked");
+        });
 
-        // Set the text to "Hello, World!"
-        textView.setText("Hello, World!");
+        TextView textViewMultiplyFloats = root.findViewById(R.id.example_item_3);
+        textViewMultiplyFloats.setOnClickListener(v -> {
+            // Handle the click event for "Multiply two Floating-Point Numbers"
+            logMessage("Multiply two Floating-Point Numbers clicked");
+        });
+
+        TextView textViewComputeQuotientAndRemainder = root.findViewById(R.id.example_item_4);
+        textViewComputeQuotientAndRemainder.setOnClickListener(v -> {
+            // Handle the click event for "Compute Quotient and Remainder"
+            logMessage("Compute Quotient and Remainder clicked");
+        });
+
+
 
         return root;
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null; // Clean up binding when view is destroyed
+    private void logMessage(String message) {
+        System.out.println("ExamplesFragment: " + message);
     }
 }
