@@ -6,47 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".ui.ai.AiAssistantFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/messagesRecyclerView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@id/inputLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/inputLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+    <Button
+        android:id="@+id/openChatGPTButton"
+        android:layout_width="448dp"
+        android:layout_height="318dp"
+        android:background="@drawable/button_background"
+        android:padding="16dp"
+        android:text="Open ChatGPT"
+        android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <EditText
-            android:id="@+id/userInputEditText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:hint="Type a message"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/sendButton"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/sendButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Send"
-            app:layout_constraintBottom_toBottomOf="@id/userInputEditText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/userInputEditText" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,6 +16,7 @@
     <string name="example_text">Numan</string>
     <string name="large_text">Your large text content goes here...</string>
     <string name="lesson_icon_description">Lesson icon</string>
+    <string name="send">Send</string>
 
 
     <!-- Define string-arrays directly within the <resources> tag -->
