@@ -1,0 +1,9 @@
+<!-- res/drawable/custom_thumb.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <!-- drawable resource for the thumb when the switch is ON -->
+    </item>
+    <item android:state_checked="false">
+        <!-- drawable resource for the thumb when the switch is OFF -->
+    </item>
+</selector>
