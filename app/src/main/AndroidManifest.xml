@@ -9,8 +9,11 @@
         android:icon="@mipmap/ic_app"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Next"
-        tools:targetApi="31">
+        android:roundIcon="@mipmap/ic_app"
+        android:theme="@style/AppTheme.DayNight"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31"
+        >
         <activity
             android:name=".ContentActivity"
             android:exported="false" />
@@ -21,7 +24,8 @@
             android:exported="false"
             android:label="@string/title_activity_learn_java"
             android:parentActivityName=".NavigationActivity"
-            android:theme="@style/Theme.Next">
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".NavigationActivity" />
@@ -31,7 +35,7 @@
             android:name=".NavigationActivity"
             android:exported="false"
             android:label="@string/title_activity_navigation"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+             />
         <activity
             android:name=".authentication.ResetActivity"
             android:exported="false" />

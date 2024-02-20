@@ -7,9 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="primary">#5E35B1</color>
-    <color name="secondary">#673AB7</color>
-    <!-- New color entries -->
+    <color name="primary">#5E35B1</color> <!-- Kept original definition -->
+    <color name="secondary">#673AB7</color> <!-- Kept original definition -->
     <color name="red_500">#F44336</color>
     <color name="red_700">#D32F2F</color>
     <color name="blue_200">#90CAF9</color>
@@ -20,5 +19,16 @@
     <color name="yellow_500">#FFEB3B</color>
     <color name="orange_200">#FFE0B2</color>
     <color name="orange_500">#FFC107</color>
-    <!-- Add more colors as needed -->
+    <color name="primaryVariant">#673AB7</color> <!-- Renamed to avoid duplication -->
+    <color name="onPrimary">#FFFFFF</color>
+    <color name="secondaryVariant">#4DB6AC</color> <!-- Renamed to avoid duplication -->
+    <color name="onSecondary">#000000</color>
+    <color name="background">#FFFFFF</color>
+    <color name="onBackground">#000000</color>
+    <color name="surface">#DDDDDD</color>
+    <color name="onSurface">#000000</color>
+    <color name="primaryNight">#121212</color>
+    <color name="primaryVariantNight">#3700B3</color>
+    <color name="secondaryNight">#03DAC6</color>
+    <color name="secondaryVariantNight">#018786</color>
 </resources>

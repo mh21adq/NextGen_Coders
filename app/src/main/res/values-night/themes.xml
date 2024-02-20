@@ -1,16 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Base application theme for night mode -->
     <style name="Theme.Next" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryVariant">@color/primary</item>
+        <!-- Adjust colors for night mode -->
+        <item name="colorPrimary">@color/primaryNight</item>
+        <item name="colorPrimaryVariant">@color/primaryVariantNight</item>
         <item name="colorOnPrimary">@color/black</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/secondary</item>
-        <item name="colorSecondaryVariant">@color/secondary</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/primary</item>
-        <!-- Customize your theme here. -->
+        <item name="colorSecondary">@color/secondaryNight</item>
+        <item name="colorSecondaryVariant">@color/secondaryVariantNight</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color for night mode -->
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/primaryNight</item>
+        <!-- Customize other attributes for night theme here -->
     </style>
 </resources>
