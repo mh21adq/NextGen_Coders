@@ -26,4 +26,8 @@
     <style name="AppTheme.DayNight" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your day/night theme here -->
     </style>
+    <style name="AppTheme.DayNight1" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
 </resources>

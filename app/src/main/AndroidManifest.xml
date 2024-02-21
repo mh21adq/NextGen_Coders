@@ -24,7 +24,7 @@
             android:exported="false"
             android:label="@string/title_activity_learn_java"
             android:parentActivityName=".NavigationActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".NavigationActivity" />

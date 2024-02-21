@@ -2,7 +2,7 @@ package com.example.next;
 
 public class Lesson {
     private String title;
-    private boolean isCompleted; // To track if the lesson is completed
+    private boolean isCompleted;
 
     public Lesson(String title, boolean isCompleted) {
         this.title = title;
@@ -16,6 +16,4 @@ public class Lesson {
     public boolean isCompleted() {
         return isCompleted;
     }
-
-    // Add setters if needed
 }

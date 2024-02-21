@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,8 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class LearnJavaActivity extends AppCompatActivity {
+public class LearnJavaActivity extends AppCompatActivity implements LearningInterface {
     private Spinner chaptersSpinner;
     private RecyclerView lessonsRecyclerView;
     private LessonAdapter lessonAdapter;
@@ -25,18 +26,15 @@ public class LearnJavaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn_java);
-
-        // Setup toolbar
-     /*   Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowHomeEnabled(true);
         }
-*/
 
-        // Initialize spinner and recycler view
         chaptersSpinner = findViewById(R.id.chaptersSpinner);
         lessonsRecyclerView = findViewById(R.id.lessonsRecyclerView);
 
@@ -44,6 +42,12 @@ public class LearnJavaActivity extends AppCompatActivity {
         setupLessonsRecyclerView();
     }
 
+    private void setupLessonsRecyclerView() {
+        lessonsList = new ArrayList<>();
+        lessonAdapter = new LessonAdapter(this, lessonsList, this); // Pass 'this' as the LearningInterface
+        lessonsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        lessonsRecyclerView.setAdapter(lessonAdapter);
+    }
     private void setupChaptersSpinner() {
         ArrayAdapter<CharSequence> chapterAdapter = ArrayAdapter.createFromResource(this,
                 R.array.chapters_array, android.R.layout.simple_spinner_item);
@@ -62,12 +66,7 @@ public class LearnJavaActivity extends AppCompatActivity {
         });
     }
 
-    private void setupLessonsRecyclerView() {
-        lessonsList = new ArrayList<>();
-        lessonAdapter = new LessonAdapter(this, lessonsList);
-        lessonsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        lessonsRecyclerView.setAdapter(lessonAdapter);
-    }
+
 
     private void updateLessonsForChapter(int chapterIndex) {
         int lessonArrayId = getResources().getIdentifier("chapter_" + (chapterIndex + 1) + "_lessons",
@@ -88,5 +87,9 @@ public class LearnJavaActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public void onLessonButtonClicked(Lesson lesson) {
+        Toast.makeText(this, "Lesson " + lesson.getTitle() + " clicked!", Toast.LENGTH_SHORT).show();
     }
 }
