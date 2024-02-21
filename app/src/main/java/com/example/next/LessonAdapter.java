@@ -13,6 +13,7 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.LessonView
     private final List<Lesson> lessons;
     private final LayoutInflater inflater;
     private final LearningInterface learningInterface;
+    private int selectedPosition = -1; // For tracking the selected lesson
 
     public LessonAdapter(Context context, List<Lesson> lessons, LearningInterface learningInterface) {
         this.inflater = LayoutInflater.from(context);
@@ -30,8 +31,22 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.LessonView
     public void onBindViewHolder(LessonViewHolder holder, int position) {
         Lesson lesson = lessons.get(position);
         holder.lessonTitle.setText(lesson.getTitle());
-        holder.startLessonButton.setOnClickListener(v -> learningInterface.onLessonButtonClicked(lesson));
+
+        // Show the start button only for the selected item
+        holder.startLessonButton.setVisibility(position == selectedPosition ? View.VISIBLE : View.GONE);
+
+        // Click listener for the item view to show the start button
+        holder.itemView.setOnClickListener(view -> {
+            selectedPosition = position; // Update the selected position
+            notifyDataSetChanged(); // Refresh the list to apply the visibility change
+        });
+
+        // Click listener for the start button to perform the action
+        holder.startLessonButton.setOnClickListener(view -> {
+            learningInterface.onLessonButtonClicked(lesson); // Perform the action when the start button is clicked
+        });
     }
+
 
     @Override
     public int getItemCount() {

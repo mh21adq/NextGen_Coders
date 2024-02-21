@@ -1,5 +1,6 @@
 package com.example.next;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -90,6 +91,9 @@ public class LearnJavaActivity extends AppCompatActivity implements LearningInte
     }
     @Override
     public void onLessonButtonClicked(Lesson lesson) {
-        Toast.makeText(this, "Lesson " + lesson.getTitle() + " clicked!", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(LearnJavaActivity.this, ReadingMaterialActivity.class);
+        intent.putExtra("LESSON_TITLE", lesson.getTitle());
+        startActivity(intent);
     }
+
 }
