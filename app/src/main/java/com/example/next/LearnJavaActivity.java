@@ -27,13 +27,14 @@ public class LearnJavaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_learn_java);
 
         // Setup toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
+     /*   Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowHomeEnabled(true);
         }
+*/
 
         // Initialize spinner and recycler view
         chaptersSpinner = findViewById(R.id.chaptersSpinner);
