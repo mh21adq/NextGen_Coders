@@ -42,6 +42,14 @@ public class CompilerFragment extends Fragment {
         outputTextView = root.findViewById(R.id.outputTextView);
         runButton = root.findViewById(R.id.runButton);
 
+        // Initialize the code editor with a default "Hello World" Java program
+        String defaultHelloWorldCode = "public class HelloWorld {\n" +
+                "    public static void main(String[] args) {\n" +
+                "        System.out.println(\"Hello, World!\");\n" +
+                "    }\n" +
+                "}";
+        codeEditor.setText(defaultHelloWorldCode);
+
         runButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

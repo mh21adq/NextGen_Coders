@@ -7,11 +7,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.Toast;
-
-import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
@@ -45,10 +43,11 @@ public class LearnJavaActivity extends AppCompatActivity implements LearningInte
 
     private void setupLessonsRecyclerView() {
         lessonsList = new ArrayList<>();
-        lessonAdapter = new LessonAdapter(this, lessonsList, this); // Pass 'this' as the LearningInterface
+        lessonAdapter = new LessonAdapter(this, lessonsList, this);
         lessonsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         lessonsRecyclerView.setAdapter(lessonAdapter);
     }
+
     private void setupChaptersSpinner() {
         ArrayAdapter<CharSequence> chapterAdapter = ArrayAdapter.createFromResource(this,
                 R.array.chapters_array, android.R.layout.simple_spinner_item);
@@ -62,12 +61,9 @@ public class LearnJavaActivity extends AppCompatActivity implements LearningInte
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                // Optional: Handle the case where no chapter selection is made
             }
         });
     }
-
-
 
     private void updateLessonsForChapter(int chapterIndex) {
         int lessonArrayId = getResources().getIdentifier("chapter_" + (chapterIndex + 1) + "_lessons",
@@ -76,9 +72,9 @@ public class LearnJavaActivity extends AppCompatActivity implements LearningInte
 
         lessonsList.clear();
         for (String title : lessonTitles) {
-            lessonsList.add(new Lesson(title, false)); // Assuming none are completed
+            lessonsList.add(new Lesson(title, false));
         }
-        lessonAdapter.notifyDataSetChanged(); // Notify the adapter of the data change
+        lessonAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -89,11 +85,18 @@ public class LearnJavaActivity extends AppCompatActivity implements LearningInte
         }
         return super.onOptionsItemSelected(item);
     }
-    @Override
+
     public void onLessonButtonClicked(Lesson lesson) {
         Intent intent = new Intent(LearnJavaActivity.this, ReadingMaterialActivity.class);
-        intent.putExtra("LESSON_TITLE", lesson.getTitle());
+        // Assuming you have a method that correctly maps the lesson title to the PDF filename
+        String pdfFileName = getPDFFileName(lesson.getTitle());
+        intent.putExtra("PDF_FILE_NAME", pdfFileName);
         startActivity(intent);
+    }
+
+    private String getPDFFileName(String lessonTitle) {
+        // Replace spaces with underscores and convert to lower case to match the PDF filenames in the assets folder
+        return lessonTitle.toLowerCase().replaceAll("\\s+", "_") + ".pdf";
     }
 
 }
