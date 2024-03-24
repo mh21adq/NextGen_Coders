@@ -60,7 +60,7 @@ public class ChatGPTActivity extends AppCompatActivity {
                 OpenAIRequest request = new OpenAIRequest("gpt-4", messages); // Assuming "gpt-4" is your intended model
 
                 // Adjust 'YOUR_OPENAI_API_KEY' with your actual API key
-                String authHeader = "Bearer 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";
+                String authHeader = "Bearer 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";
 
                 // Make the API call
                 openAIService.createChatCompletion(authHeader, request).enqueue(new Callback<OpenAIResponse>() {

@@ -20,8 +20,8 @@ public class OpenAIRequest {
             this.content = content;
         }
 
-        // Getters and setters for role and content
+
     }
 
-    // Getters and setters for model and messages
+
 }

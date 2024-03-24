@@ -14,12 +14,10 @@ import com.example.next.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
-    EditText editTextEmail, editTextPassword;
-    Button login, signUp;
-    TextView forgetPassword;
-    FirebaseAuth firebaseAuth;
-    ImageView google;
-    CheckBox rememberMe;
+    private EditText editTextEmail, editTextPassword;
+    private Button login, signUp;
+    private TextView forgetPassword;
+    private FirebaseAuth firebaseAuth;
 
 
     @Override

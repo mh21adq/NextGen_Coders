@@ -1,8 +1,10 @@
-package com.example.next;
+package com.example.next.lessons;
 import android.os.Bundle;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.next.R;
 import com.github.barteksc.pdfviewer.PDFView;
 
 public class ReadingMaterialActivity extends AppCompatActivity {

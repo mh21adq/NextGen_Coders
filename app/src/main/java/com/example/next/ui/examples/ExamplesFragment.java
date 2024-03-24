@@ -1,5 +1,6 @@
 package com.example.next.ui.examples;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,37 +19,18 @@ public class ExamplesFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_examples, container, false);
 
-        // Set up each TextView with click listeners
         TextView textViewHelloWorld = root.findViewById(R.id.example_item_1);
-        textViewHelloWorld.setOnClickListener(v -> {
-            // Handle the click event for "Hello World"
-            logMessage("Hello World clicked");
-        });
+        textViewHelloWorld.setOnClickListener(v -> navigateToCodeDisplay("hello_world"));
 
         TextView textViewAddTwoIntegers = root.findViewById(R.id.example_item_2);
-        textViewAddTwoIntegers.setOnClickListener(v -> {
-            // Handle the click event for "Add Two Integers"
-            logMessage("Add Two Integers clicked");
-        });
-
-        TextView textViewMultiplyFloats = root.findViewById(R.id.example_item_3);
-        textViewMultiplyFloats.setOnClickListener(v -> {
-            // Handle the click event for "Multiply two Floating-Point Numbers"
-            logMessage("Multiply two Floating-Point Numbers clicked");
-        });
-
-        TextView textViewComputeQuotientAndRemainder = root.findViewById(R.id.example_item_4);
-        textViewComputeQuotientAndRemainder.setOnClickListener(v -> {
-            // Handle the click event for "Compute Quotient and Remainder"
-            logMessage("Compute Quotient and Remainder clicked");
-        });
-
-
+        textViewAddTwoIntegers.setOnClickListener(v -> navigateToCodeDisplay("add_two_integers"));
 
         return root;
     }
 
-    private void logMessage(String message) {
-        System.out.println("ExamplesFragment: " + message);
+    private void navigateToCodeDisplay(String exampleName) {
+        Intent intent = new Intent(getActivity(), CodeDisplayActivity.class);
+        intent.putExtra("example_name", exampleName);
+        startActivity(intent);
     }
 }

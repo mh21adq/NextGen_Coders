@@ -1,4 +1,4 @@
-package com.example.next;
+package com.example.next.lessons;
 
 public class Lesson {
     private String title;

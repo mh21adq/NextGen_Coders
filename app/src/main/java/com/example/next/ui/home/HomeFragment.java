@@ -6,16 +6,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
-import com.example.next.LearnJavaActivity; // Import the LearnJavaActivity
+import com.example.next.lessons.learnJava.LearnJavaActivity; // Import the LearnJavaActivity
 import com.example.next.R;
 import com.example.next.databinding.FragmentHomeBinding;
-import com.example.next.ui.ai.ChatGPTActivity;
 
 public class HomeFragment extends Fragment {
 
