@@ -101,7 +101,7 @@ public class LearnJavaActivity extends AppCompatActivity implements LearningInte
         startActivity(intent);
     }
 
-    private String getPDFFileName(String lessonTitle) {
+    public String getPDFFileName(String lessonTitle) {
         // Replace spaces with underscores and convert to lower case to match the PDF filenames in the assets folder
         return lessonTitle.toLowerCase().replaceAll("\\s+", "_") + ".pdf";
     }

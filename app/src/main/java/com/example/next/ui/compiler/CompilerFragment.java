@@ -26,7 +26,10 @@ import okhttp3.Callback;
 import com.example.next.R;
 
 import java.io.IOException;
-
+/**
+ * CompilerFragment provides an interface for users to input, compile, and view the output of code within the app.
+ * It communicates with a remote API to compile the code and display the result.
+ */
 public class CompilerFragment extends Fragment {
 
     private EditText codeEditor;
@@ -36,7 +39,9 @@ public class CompilerFragment extends Fragment {
     private static final String JDOODLE_API_URL = "https://api.jdoodle.com/v1/execute";
     private static final String JDOODLE_CLIENT_ID = "8ee54aa27918202568f37c483205e0e5";
     private static final String JDOODLE_CLIENT_SECRET = "7242340bdda9b18b1ed0993d48e7b1eb62cd70f2e5c40b6f031a3efa369b4dec";
-
+    /**
+     * Initializes the fragment's view and sets up event listeners for UI elements.
+     */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -46,9 +51,11 @@ public class CompilerFragment extends Fragment {
         outputTextView = root.findViewById(R.id.outputTextView);
         lineNumbers = root.findViewById(R.id.lineNumbers); // Initialize the line numbers TextView
         runButton = root.findViewById(R.id.runButton);
-
-        codeEditor.setText("public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }\n}");
-
+        // Sets default code in the code editor
+        codeEditor.setText("public class HelloWorld {\n   " +
+                " public static void main(String[] args) {\n    " +
+                "    System.out.println(\"Hello, World!\");\n    }\n}");
+        // Handles text change in the code editor to auto-insert closing brackets and update line numbers
         codeEditor.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -75,14 +82,16 @@ public class CompilerFragment extends Fragment {
                 return false;
             }
         });
-
+        // Configures the run button to compile and execute the code
         runButton.setOnClickListener(view -> executeCode(codeEditor.getText().toString()));
-
+        // Initial update for line numbers based on default code
         updateLineNumbers(); // Initial line numbers update
 
         return root;
     }
-
+    /**
+     * Handles automatic bracket insertion for code editor.
+     */
     private void handleBracketInsertion(CharSequence s, int start, int count) {
         if (count == 1) {
             char newChar = s.charAt(start);
@@ -93,7 +102,9 @@ public class CompilerFragment extends Fragment {
             }
         }
     }
-
+    /**
+     * Returns the closing character for a given opening bracket or character.
+     */
     private char getClosingChar(char openingChar) {
         switch (openingChar) {
             case '(': return ')';
@@ -101,8 +112,10 @@ public class CompilerFragment extends Fragment {
             default: return '\0'; // No matching bracket
         }
     }
-
-    private void handleEnterKeyPress() {
+    /**
+     * Handles the ENTER key press for indentation.
+     */
+    public void handleEnterKeyPress() {
         int start = codeEditor.getSelectionStart();
         int end = codeEditor.getSelectionEnd();
         String text = codeEditor.getText().toString();
@@ -117,7 +130,9 @@ public class CompilerFragment extends Fragment {
         codeEditor.getText().replace(Math.min(start, end), Math.max(start, end),
                 "\n" + indentation, 0, indentation.length() + 1);
     }
-
+    /**
+     * Generates indentation
+     */
     private String getIndentation(String lineContent) {
         StringBuilder indent = new StringBuilder();
         for (char c : lineContent.toCharArray()) {
@@ -129,7 +144,9 @@ public class CompilerFragment extends Fragment {
         }
         return indent.toString();
     }
-
+    /**
+     * Generates and updates line numbers corresponding to the code editor's content.
+     */
     private void updateLineNumbers() {
         int linesCount = codeEditor.getLineCount();
         StringBuilder lines = new StringBuilder();
@@ -138,7 +155,9 @@ public class CompilerFragment extends Fragment {
         }
         lineNumbers.setText(lines.toString());
     }
-
+    /**
+     * Sends the written code to a remote API for compilation and displays the output or error.
+     */
     private void executeCode(String code) {
         OkHttpClient client = new OkHttpClient();
 

@@ -3,7 +3,7 @@ package com.example.next.ui.ai;
 import java.util.List;
 
 public class OpenAIResponse {
-    private List<Choice> choices;
+    public List<Choice> choices;
 
     public List<Choice> getChoices() {
         return choices;
@@ -11,7 +11,7 @@ public class OpenAIResponse {
 
 
     public static class Choice {
-        private Message message;
+        public Message message;
 
         public Message getMessage() {
             return message;

@@ -22,12 +22,22 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * ChatGPTActivity is responsible for providing a user interface where users can interact with
+ * an AI model via text. It handles sending user inputs to the AI and displaying its responses.
+ */
 public class ChatGPTActivity extends AppCompatActivity {
 
     private LinearLayout chatContainer;
     private EditText userInputEditText;
     private ImageButton sendButton;
 
+    /**
+     * Sets up the activity's interface on creation, initializes interaction components, and
+     * prepares the network request setup for communicating with OpenAI's GPT model.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being shut down then this Bundle contains the data it most recently supplied in onSaveInstanceState(Bundle). Otherwise it is null.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,10 +67,10 @@ public class ChatGPTActivity extends AppCompatActivity {
 
                 List<OpenAIRequest.Message> messages = new ArrayList<>();
                 messages.add(new OpenAIRequest.Message("user", userInput));
-                OpenAIRequest request = new OpenAIRequest("gpt-4", messages); // Assuming "gpt-4" is your intended model
+                OpenAIRequest request = new OpenAIRequest("gpt-4", messages);
 
                 // Adjust 'YOUR_OPENAI_API_KEY' with your actual API key
-                String authHeader = "Bearer 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";
+                String authHeader = "Bearer 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";
 
                 // Make the API call
                 openAIService.createChatCompletion(authHeader, request).enqueue(new Callback<OpenAIResponse>() {
@@ -86,6 +96,12 @@ public class ChatGPTActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Adds a message to the chat container, visually distinguishing between user messages and AI responses.
+     *
+     * @param message The message to be displayed.
+     * @param isUserMessage A flag indicating whether the message is from the user (true) or from the AI (false).
+     */
     private void addMessageToChat(String message, boolean isUserMessage) {
         TextView messageView = new TextView(this);
         messageView.setText(message);
@@ -103,6 +119,11 @@ public class ChatGPTActivity extends AppCompatActivity {
         scrollView.post(() -> scrollView.fullScroll(ScrollView.FOCUS_DOWN));
     }
 
+    /**
+     * Overrides the action bar's Up button to mimic the back button behavior.
+     *
+     * @return true to indicate that the Up navigation completed successfully.
+     */
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();

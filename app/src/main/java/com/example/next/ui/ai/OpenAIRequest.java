@@ -11,6 +11,10 @@ public class OpenAIRequest {
         this.messages = messages;
     }
 
+    public String getModel() {
+        return model;
+    }
+
     public static class Message {
         private String role;
         private String content;
@@ -20,7 +24,13 @@ public class OpenAIRequest {
             this.content = content;
         }
 
+        public String getContent() {
+            return content;
+        }
 
+        public String getRole() {
+            return role;
+        }
     }
 
 

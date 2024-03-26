@@ -33,12 +33,9 @@
             android:layout_width="0dp"
             android:layout_height="388dp"
             android:layout_marginStart="8dp"
-
             android:alpha="0.7"
             android:background="@drawable/edit_text_black_border"
-
             android:backgroundTint="@null"
-
             android:gravity="start|top"
             android:hint="write your code here"
             android:inputType="textMultiLine|textNoSuggestions"
@@ -51,9 +48,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:paddingStart="10dp"
-        android:paddingTop="10dp"
-        android:paddingEnd="10dp"
-        android:paddingBottom="10dp"/>
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="10dp"/>
 
         <!-- Run Button -->
 
