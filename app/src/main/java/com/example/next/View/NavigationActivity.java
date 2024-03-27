@@ -1,6 +1,8 @@
-package com.example.next;
+package com.example.next.View;
 
 import android.os.Bundle;
+
+import com.example.next.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;

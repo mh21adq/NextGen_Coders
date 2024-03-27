@@ -1,4 +1,4 @@
-package com.example.next.lessons;
+package com.example.next.Model.Learning;
 
 public interface LearningInterface {
     void onLessonButtonClicked(Lesson lesson);

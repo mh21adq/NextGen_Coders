@@ -1,4 +1,4 @@
-package com.example.next.authentication;
+package com.example.next.ViewModel.Firebase;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

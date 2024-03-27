@@ -1,4 +1,7 @@
-package com.example.next.ui.ai;
+package com.example.next.Model.OpenAI;
+
+import com.example.next.Model.OpenAI.OpenAIRequest;
+import com.example.next.Model.OpenAI.OpenAIResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

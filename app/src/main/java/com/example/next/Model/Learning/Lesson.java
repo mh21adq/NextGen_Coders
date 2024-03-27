@@ -1,4 +1,4 @@
-package com.example.next.lessons;
+package com.example.next.Model.Learning;
 
 public class Lesson {
     private String title;

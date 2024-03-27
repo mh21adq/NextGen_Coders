@@ -1,4 +1,4 @@
-package com.example.next.ui.examples;
+package com.example.next.View.ExamplesFragment;
 
 import android.content.Intent;
 import android.os.Bundle;

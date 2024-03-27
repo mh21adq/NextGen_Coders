@@ -1,4 +1,4 @@
-package com.example.next.lessons;
+package com.example.next.Model.Learning;
 
 import android.content.Context;
 import android.view.LayoutInflater;

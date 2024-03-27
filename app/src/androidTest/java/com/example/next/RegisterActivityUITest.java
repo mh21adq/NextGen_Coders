@@ -7,7 +7,7 @@ import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.filters.LargeTest;
 
-import com.example.next.authentication.RegisterActivity;
+import com.example.next.ViewModel.Firebase.RegisterActivity;
 
 import org.junit.Rule;
 import org.junit.Test;

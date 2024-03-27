@@ -1,6 +1,5 @@
 package com.example.next;
-import com.example.next.*;
-import com.example.next.lessons.Lesson;
+import com.example.next.Model.Learning.Lesson;
 
 import org.junit.Test;
 import static org.junit.Assert.*;

@@ -9,7 +9,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import com.example.next.ui.ai.OpenAIResponse;
+import com.example.next.Model.OpenAI.OpenAIResponse;
 
 public class OpenAIResponseTest {
     private OpenAIResponse openAIResponse;

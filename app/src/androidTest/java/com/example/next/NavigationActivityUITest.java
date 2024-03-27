@@ -1,5 +1,5 @@
 package com.example.next;
-import com.example.next.*;
+import com.example.next.View.NavigationActivity;
 
 import androidx.test.espresso.Espresso;
 import androidx.test.espresso.action.ViewActions;

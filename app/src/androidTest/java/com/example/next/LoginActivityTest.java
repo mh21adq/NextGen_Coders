@@ -8,7 +8,7 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.filters.LargeTest;
 import org.junit.Rule;
 import org.junit.Test;
-import com.example.next.authentication.LoginActivity;
+import com.example.next.ViewModel.Firebase.LoginActivity;
 
 @LargeTest
 public class LoginActivityTest {

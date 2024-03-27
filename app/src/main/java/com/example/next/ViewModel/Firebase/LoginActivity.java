@@ -1,4 +1,4 @@
-package com.example.next.authentication;
+package com.example.next.ViewModel.Firebase;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
@@ -7,7 +7,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.next.NavigationActivity;
+import com.example.next.View.NavigationActivity;
 import com.example.next.R;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -46,16 +46,6 @@ public class LoginActivity extends AppCompatActivity {
      */
     private FirebaseAuth firebaseAuth;
 
-    /**
-     * Called when the activity is starting. This is where most initialization should go:
-     * calling setContentView(int) to inflate the activity's UI, using findViewById(int) to programmatically
-     * interact with widgets in the UI, registering listeners, and using getIntent() to retrieve any data
-     * passed to this activity.
-     *
-     * @param savedInstanceState If the activity is being re-initialized after previously being shut down then
-     *                           this Bundle contains the data it most recently supplied in onSaveInstanceState(Bundle).
-     *                           Note: Otherwise it is null.
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,9 +63,7 @@ public class LoginActivity extends AppCompatActivity {
 
         // Navigate to RegisterActivity when signUp is clicked
         signUp.setOnClickListener(view -> {
-            startActivity(new Intent(
-                    LoginActivity.this,
-                    RegisterActivity.class));
+            startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             finish();
         });
 
@@ -86,36 +74,47 @@ public class LoginActivity extends AppCompatActivity {
 
         // Attempt to login when login button is clicked
         login.setOnClickListener(view -> {
-            String email = editTextEmail.getText().toString().trim();
-            String password = editTextPassword.getText().toString().trim();
+            if (isInputValid()) {
+                String email = editTextEmail.getText().toString().trim();
+                String password = editTextPassword.getText().toString().trim();
 
-            // Validate input
-            if (email.isEmpty()) {
-                editTextEmail.setError("Email is required.");
-                return;
+                // Authenticate with Firebase
+                firebaseAuth.signInWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(task -> {
+                            if (task.isSuccessful()) {
+                                // Login successful
+                                Toast.makeText(LoginActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(), NavigationActivity.class));
+                            } else {
+                                // Login failed
+                                Toast.makeText(LoginActivity.this, "Login Failed: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                            }
+                        });
             }
-
-            if (password.isEmpty()) {
-                editTextPassword.setError("Password is required.");
-                return;
-            }
-
-            // Authenticate with Firebase
-            firebaseAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(task -> {
-                        if (task.isSuccessful()) {
-                            // Login successful
-                            Toast.makeText(LoginActivity.this,
-                                    "Logged in Successfully", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), NavigationActivity.class));
-                        } else {
-                            // Login failed
-                            Toast.makeText(LoginActivity.this, "Login Failed: "
-                                    + task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                        }
-                    });
         });
-
     }
 
+    /**
+     * Validates the email and password input by the user.
+     *
+     * @return true if the input is valid, false otherwise.
+     */
+    private boolean isInputValid() {
+        String email = editTextEmail.getText().toString().trim();
+        String password = editTextPassword.getText().toString().trim();
+
+        if (email.isEmpty()) {
+            editTextEmail.setError("Email is required.");
+            editTextEmail.requestFocus();
+            return false;
+        }
+
+        if (password.isEmpty()) {
+            editTextPassword.setError("Password is required.");
+            editTextPassword.requestFocus();
+            return false;
+        }
+
+        return true; // Both inputs are valid
+    }
 }

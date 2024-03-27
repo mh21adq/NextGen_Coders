@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import static org.junit.Assert.assertEquals;
 
-import com.example.next.ui.ai.OpenAIRequest;
+import com.example.next.Model.OpenAI.OpenAIRequest;
 
 public class OpenAIRequestTest {
     private OpenAIRequest openAIRequest;

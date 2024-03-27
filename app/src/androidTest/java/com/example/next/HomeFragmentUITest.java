@@ -7,9 +7,7 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
 
-import com.example.next.ui.home.HomeFragment;
-import com.example.next.R;
-import com.example.next.ui.home.HomeFragment;
+import com.example.next.View.NavigationActivity;
 
 import org.junit.Rule;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package com.example.next.ui.compiler;
+package com.example.next.ViewModel.CompilerFragment;
 
 import android.os.Bundle;
 import android.text.Editable;

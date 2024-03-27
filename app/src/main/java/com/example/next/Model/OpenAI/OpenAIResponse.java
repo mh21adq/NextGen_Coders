@@ -1,4 +1,4 @@
-package com.example.next.ui.ai;
+package com.example.next.Model.OpenAI;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.next.ui.user;
+package com.example.next.View.UserFragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
-import com.example.next.authentication.LoginActivity;
+import com.example.next.ViewModel.Firebase.LoginActivity;
 import com.example.next.databinding.FragmentUserBinding;
 
 public class UserFragment extends Fragment {

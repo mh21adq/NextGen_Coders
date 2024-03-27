@@ -1,4 +1,4 @@
-package com.example.next.ui.home;
+package com.example.next.View.HomeFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import com.example.next.lessons.learnJava.LearnJavaActivity; // Import the LearnJavaActivity
+
 import com.example.next.R;
 import com.example.next.databinding.FragmentHomeBinding;
 

@@ -1,4 +1,4 @@
-package com.example.next.lessons.learnJava;
+package com.example.next.View.HomeFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,10 +14,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.next.R;
-import com.example.next.lessons.LearningInterface;
-import com.example.next.lessons.Lesson;
-import com.example.next.lessons.LessonAdapter;
-import com.example.next.lessons.ReadingMaterialActivity;
+import com.example.next.Model.Learning.LearningInterface;
+import com.example.next.Model.Learning.Lesson;
+import com.example.next.Model.Learning.LessonAdapter;
+import com.example.next.Model.Learning.ReadingMaterialActivity;
 
 import java.util.ArrayList;
 import java.util.List;
